@@ -60,7 +60,7 @@ export default function FunFactDrawer({
                         <div className=" bg-funFactBackground h-14 rounded-tl-4xl "></div>
                     </div>
                 </DrawerTrigger>
-                <DrawerContent className="bg-funFactBackground text-white border-none left-[34.5rem] right-[77px] rounded-tl-3xl rounded-tr-none rounded-bl-none">
+                <DrawerContent className="bg-funFactBackground text-white border-none left-[34.5rem] right-[77px] rounded-tl-3xl rounded-tr-none rounded-bl-none pr-10">
                     <VisuallyHidden.Root>
                         <DrawerTitle>Fun Fact</DrawerTitle>
                     </VisuallyHidden.Root>
@@ -73,7 +73,7 @@ export default function FunFactDrawer({
                         <div className="mx-auto px-20 pt-20 pb-10 flex gap-4">
                             <DrawerHeader hidden>
                                 <DrawerDescription
-                                    className="text-white/90 space-y-4 text-xl"
+                                    className="text-white/90 space-y-4 text-[22px] leading-8"
                                     asChild
                                 >
                                     <div className="flex flex-col gap-2">
