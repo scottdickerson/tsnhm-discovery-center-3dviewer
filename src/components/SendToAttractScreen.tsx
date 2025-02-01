@@ -5,12 +5,12 @@ export interface SendToAttractScreenProps {
 }
 
 export const SendToAttractScreen = ({
-    timeoutInMs = 120000,
+    timeoutInMs = 30000,
 }: SendToAttractScreenProps) => {
     const createTimer = () =>
         setTimeout(() => {
             if (typeof window !== 'undefined') window.location.href = '/'
-        }, timeoutInMs ?? 65000)
+        }, timeoutInMs)
 
     let redirectTimer = createTimer()
 
