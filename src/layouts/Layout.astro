@@ -2,11 +2,14 @@
 // Component Imports
 import '../styles/global.css'
 import { SendToAttractScreen } from '../components/SendToAttractScreen'
+import DinosaurFootprintViewer from '@/components/dinosaur-footprint-viewer'
+import type { contentData } from '@/data/contentData'
 interface Props {
     title: string
 }
 
 const { title } = Astro.props
+const { pathname } = new URL(Astro.request.url)
 ---
 
 <html lang="en" title={title}>
@@ -21,14 +24,17 @@ const { title } = Astro.props
                 font-family: system-ui;
                 margin: 0;
             }
-            body {
-                padding: 2rem;
-            }
         </style>
     </head>
     <body>
         <main>
             <SendToAttractScreen />
+            <DinosaurFootprintViewer
+                selectedFootprint={pathname === '/'
+                    ? 'sauropod'
+                    : (pathname.slice(1) as keyof typeof contentData)}
+                client:visible
+            />
             <slot />
         </main>
     </body>
