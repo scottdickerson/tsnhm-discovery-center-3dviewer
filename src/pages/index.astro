@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Counter from '../components/Counter'
+---
+
+<Layout title="Palo Pinto Carousel">
+    <Counter count={0} client:visible>
+        <h1>Hello, React!</h1>
+    </Counter>
+</Layout>
