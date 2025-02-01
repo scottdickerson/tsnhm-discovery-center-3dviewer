@@ -18,6 +18,10 @@ export default {
             borderRadius: {
                 '4xl': '150px',
             },
+            transitionDelay: {
+                650: '650ms',
+                750: '750ms',
+            },
             colors: {
                 funFactBackground: '#1D8406',
                 background: 'hsl(var(--background))',
