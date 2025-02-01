@@ -1,0 +1,26 @@
+---
+import { contentData } from '@/data/contentData'
+import Layout from '../layouts/Layout.astro'
+
+const { detail } = Astro.params as { detail: keyof typeof contentData }
+
+if (
+    !Object.keys(contentData)
+        .map((detailId) => detailId)
+        .includes(detail)
+) {
+    throw new Error('Invalid detail parameter')
+}
+export function getStaticPaths() {
+    return Object.keys(contentData).map((detailId) => ({
+        params: { detail: detailId },
+    }))
+}
+
+const title = detail.charAt(0).toUpperCase() + detail.slice(1)
+---
+
+<Layout title={title}>
+    <h1>{title}</h1>
+    <p>{contentData[detail]}</p>
+</Layout>
