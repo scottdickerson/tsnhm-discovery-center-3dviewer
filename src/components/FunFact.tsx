@@ -60,13 +60,13 @@ export default function FunFactDrawer({
                         <div className=" bg-funFactBackground h-14 rounded-tl-4xl "></div>
                     </div>
                 </DrawerTrigger>
-                <DrawerContent className="bg-funFactBackground text-white border-none left-[34.5rem] right-[78px] rounded-tl-3xl rounded-tr-none rounded-bl-none">
+                <DrawerContent className="bg-funFactBackground text-white border-none left-[34.5rem] right-[77px] rounded-tl-3xl rounded-tr-none rounded-bl-none">
                     <VisuallyHidden.Root>
                         <DrawerTitle>Fun Fact</DrawerTitle>
                     </VisuallyHidden.Root>
                     <DrawerClose asChild>
                         <FunFactButton
-                            className={`absolute right-0 -top-16 ${!open ? 'hidden' : 'visible'}`}
+                            className={`absolute right-0 -top-16 ${!open ? 'opacity-0' : ''} transition duration-0 delay-650`}
                         />
                     </DrawerClose>
                     <DrawerClose>

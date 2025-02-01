@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { contentData } from '@/data/contentData'
-import FunFactDrawer from './FunFact'
+import { InfoBox } from './InfoBox'
 
 export interface DinosaurFootprintViewerProps {
     selectedFootprint: keyof typeof contentData
@@ -63,26 +63,14 @@ export default function DinosaurFootprintViewer({
             {/* Main Content */}
             <div className="flex-1 space-y-10">
                 <div className="relative ">
+                    {/*  Will be replaced by the object or video viewer */}
                     <img
                         src={currentFootprintDetail.src}
                         alt="3D scan of a dinosaur footprint"
                         className="object-cover w-full max-h-[803px]"
                     />
                 </div>
-
-                {/* Info Box */}
-                <div className="flex gap-2 bg-lime-500 p-10 rounded-t-[40px] pr-48 h-60 relative ml-10 mr-10">
-                    <div className="flex flex-col gap-2 flex-grow">
-                        <h2 className="text-2xl font-semibold text-gray-900 mb-2">
-                            {currentFootprintDetail.detailTitle}
-                        </h2>
-                        <p className="text-gray-900 text-xl w-[698px]">
-                            {currentFootprintDetail.detailDescription}
-                        </p>
-                    </div>
-
-                    <FunFactDrawer selectedFootprint={selectedFootprint} />
-                </div>
+                <InfoBox selectedFootprint={selectedFootprint} />
             </div>
         </div>
     )
