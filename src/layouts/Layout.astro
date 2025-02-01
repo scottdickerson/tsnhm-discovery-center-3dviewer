@@ -3,6 +3,7 @@
 import '../styles/global.css'
 import { SendToAttractScreen } from '../components/SendToAttractScreen'
 import DinosaurFootprintViewer from '@/components/dinosaur-footprint-viewer'
+import FunFactDrawer from '@/components/FunFact'
 import type { contentData } from '@/data/contentData'
 interface Props {
     title: string
@@ -10,6 +11,10 @@ interface Props {
 
 const { title } = Astro.props
 const { pathname } = new URL(Astro.request.url)
+const selectedFootprint =
+    pathname === '/'
+        ? 'sauropod'
+        : (pathname.slice(1) as keyof typeof contentData)
 ---
 
 <html lang="en" title={title}>
@@ -21,20 +26,21 @@ const { pathname } = new URL(Astro.request.url)
         <style>
             html,
             body {
-                font-family: system-ui;
                 margin: 0;
+                [data-vaul-drawer] > :first-child {
+                    display: none;
+                }
             }
         </style>
     </head>
     <body>
-        <main>
-            <SendToAttractScreen />
+        <main class="font-archivo">
+            <SendToAttractScreen client:visible />
             <DinosaurFootprintViewer
-                selectedFootprint={pathname === '/'
-                    ? 'sauropod'
-                    : (pathname.slice(1) as keyof typeof contentData)}
+                selectedFootprint={selectedFootprint}
                 client:visible
             />
+
             <slot />
         </main>
     </body>
