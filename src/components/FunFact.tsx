@@ -19,6 +19,7 @@ const FunFactButton = forwardRef<HTMLButtonElement, ButtonProps>(
         return (
             <Button
                 {...props}
+                ref={ref}
                 className={`bg-funFactBackground hover:bg-funFactBackground text-[#9FD71C] focus:outline-none focus:border-none font-black rounded-none rounded-t-2xl px-10 py-8 text-3xl translate-y-[1px] ${className}`}
             >
                 FUN FACT

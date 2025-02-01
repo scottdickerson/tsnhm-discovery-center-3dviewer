@@ -1,5 +1,8 @@
 ---
+import DinosaurFootprintViewer from '@/components/dinosaur-footprint-viewer'
 import Layout from '../layouts/Layout.astro'
 ---
 
-<Layout title="Palo Pinto Carousel" />
+<Layout title="Discovery Center">
+    <DinosaurFootprintViewer selectedFootprint={'sauropod'} client:visible />
+</Layout>
