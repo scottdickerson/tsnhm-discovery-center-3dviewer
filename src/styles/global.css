@@ -81,3 +81,11 @@
             format('woff2'),
         url('/fonts/Archivo-VariableFont_wdth,wght-subset.woff') format('woff');
 }
+
+.semi-expanded {
+    font-stretch: semi-expanded;
+}
+
+.expanded {
+    font-stretch: expanded;
+}

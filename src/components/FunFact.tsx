@@ -61,13 +61,13 @@ export default function FunFactDrawer({
                         <div className=" bg-funFactBackground h-14 rounded-tl-4xl "></div>
                     </div>
                 </DrawerTrigger>
-                <DrawerContent className="bg-funFactBackground text-white border-none left-[34.5rem] right-[77px] rounded-tl-3xl rounded-tr-none rounded-bl-none pr-10">
+                <DrawerContent className="bg-funFactBackground text-white border-none left-[34.5rem] right-[76px] rounded-tl-3xl rounded-tr-none rounded-bl-none pr-10">
                     <VisuallyHidden.Root>
                         <DrawerTitle>Fun Fact</DrawerTitle>
                     </VisuallyHidden.Root>
                     <DrawerClose asChild>
                         <FunFactButton
-                            className={`absolute right-0 -top-16 ${!open ? 'opacity-0' : ''} transition duration-0 delay-650`}
+                            className={`absolute right-0 -top-16 ${!open ? 'opacity-0' : ''} transition duration-0 delay-650 semi-expanded`}
                         />
                     </DrawerClose>
                     <DrawerClose>
@@ -83,7 +83,7 @@ export default function FunFactDrawer({
                                 </DrawerDescription>
                             </DrawerHeader>
                             <img
-                                className="w-[528px] h-[380px] bg-white/20 rounded-lg mb-4"
+                                className=" h-[380px] bg-white/20 rounded-lg mb-4"
                                 src={selectedFootprintData.funFactSrc}
                             />
                         </div>
