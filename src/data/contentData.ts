@@ -2,8 +2,6 @@ export const contentData = {
     sauropod: {
         detailId: 'sauropod',
         title: 'Sauropod Footprint',
-        src: '/footprints/sauropod.png',
-        silhouetteSrc: '/silhouettes/sauropod.svg',
         location: 'Dinosaur Valley State Park',
         detailTitle: 'Earth-shaking Sauropod',
         detailDescription:
@@ -12,36 +10,38 @@ export const contentData = {
         credit: 'Courtesy Paul Baker',
         funFact:
             '<p>During the summer of 2022, a drought dried the Puluxy River in Glen Rose, Texas briefly revealing many never-before-seen dinosaur footprints.</p><p>A team of volunteers from Dallas Paleontological Society volunteers, Glen Kuban, and Paul Baker rushed to clean, record, and measure the tracks before the drought ended.</p>',
-        funFactSrc: '/footprints/sauropod.png',
+        silhouetteSrc: '/silhouettes/sauropod.svg',
+        src: '/footprints/sauropod.png',
+        funFactSrc: '/funFactImages/Tracks and Traces Fun Fact 1 Medium.jpeg',
     },
     theropod: {
         detailId: 'theropod',
         title: 'Theropod Footprint',
-        src: '/footprints/theropod.png',
-        silhouetteSrc: '/silhouettes/theropod.svg',
         location: 'Dinosaur Valley State Park',
-        detailTitle: 'Terrifying Theropod',
+        detailTitle: 'Claws!',
         detailDescription:
-            'This footprint was likely made by a theropod, a group of bipedal dinosaurs that includes the terrifying Tyrannosaurus rex. Theropods were carnivorous and walked on two legs.',
+            'This Acrocanthosaurus print perfectly preserves the impression of this predatorʼs toes and sharp claws. ',
         media: '3D Photogrammetry, 2023',
         credit: 'Courtesy Paul Baker',
         funFact:
-            '<p>During the summer of 2022, a drought dried the Puluxy River in Glen Rose, Texas briefly revealing many never-before-seen dinosaur footprints.</p><p>A team of volunteers from Dallas Paleontological Society volunteers, Glen Kuban, and Paul Baker rushed to clean, record, and measure the tracks before the drought ended.</p>',
-        funFactSrc: '/footprints/sauropod.png',
+            '<p>Flooding and fast moving waters can destroy fossil footprints.</p> <p>Digital scanning preserves information about these prints for the future.</p>',
+        silhouetteSrc: '/silhouettes/theropod.svg',
+        src: '/footprints/theropod.png',
+        funFactSrc: '/funFactImages/Tracks and Traces Fun Fact 2 Medium.jpeg',
     },
     footprint3: {
         detailId: 'footprint3',
-        title: 'Footprint #3',
-        src: '/footprints/footprint3.png',
-        silhouetteSrc: '/silhouettes/footprint3.svg',
+        title: 'Theropod Footprint',
         location: 'Dinosaur Valley State Park',
-        detailTitle: 'Footprint #3',
+        detailTitle: 'Predator Prints',
         detailDescription:
-            'This is a description of Footprint #3. It was made by a dinosaur.',
+            'Researchers think that a large Acrocanthosaurus made this track. This three-toed, meat-eating dinosaur ran after its prey on its two powerful hind legs.  ',
         media: '3D Photogrammetry, 2023',
         credit: 'Courtesy Paul Baker',
         funFact:
-            '<p>During the summer of 2022, a drought dried the Puluxy River in Glen Rose, Texas briefly revealing many never-before-seen dinosaur footprints.</p><p>A team of volunteers from Dallas Paleontological Society volunteers, Glen Kuban, and Paul Baker rushed to clean, record, and measure the tracks before the drought ended.</p>',
-        funFactSrc: '/footprints/sauropod.png',
+            '<p>This is one of the largest theropod prints ever documented at Dinosaur Valley State Park.</p><p>It is usually underwater, but was briefly visible during a drought. </p> ',
+        src: '/footprints/footprint3.png',
+        silhouetteSrc: '/silhouettes/footprint3.svg',
+        funFactSrc: '/funFactImages/Tracks and Traces Fun Fact 3 Medium.jpeg',
     },
 } as const
