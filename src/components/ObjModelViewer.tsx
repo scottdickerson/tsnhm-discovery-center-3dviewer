@@ -105,7 +105,7 @@ export const ObjModelViewer = ({ modelFileName }: ObjModelViewerProps) => {
                         object.position.sub(center)
                         object.translateY(0.1)
                         object.translateX(0.1)
-                        const quaternion = new THREE.Quaternion(0.35, 0, 0)
+                        const quaternion = new THREE.Quaternion(0.5, 0, 0)
                         object.setRotationFromQuaternion(quaternion)
                         // make this element available inside of the whole component to do any animation later
                         thisRef.current.model = object
