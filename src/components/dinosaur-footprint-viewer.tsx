@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { contentData } from '@/data/contentData'
 import { InfoBox } from './InfoBox'
+import { ObjModelViewer } from './ObjModelViewer'
 
 export interface DinosaurFootprintViewerProps {
     selectedFootprint: keyof typeof contentData
@@ -62,11 +63,14 @@ export default function DinosaurFootprintViewer({
             <div className="flex-1 space-y-10">
                 <div className="relative ">
                     {/*  Will be replaced by the object or video viewer */}
-                    <img
+                    <ObjModelViewer
+                        modelFileName={currentFootprintDetail.modelFileName}
+                    />
+                    {/* <img
                         src={currentFootprintDetail.src}
                         alt="3D scan of a dinosaur footprint"
                         className="object-cover w-full max-h-[803px]"
-                    />
+                    /> */}
                 </div>
                 <InfoBox selectedFootprint={selectedFootprint} />
             </div>
