@@ -219,12 +219,11 @@ export const ObjModelViewer = ({ modelFileName }: ObjModelViewerProps) => {
 
     return (
         <div
-            onMouseDown={(event) => {
-                return event
-            }}
             onMouseUp={(event) => {
                 setModelResetTimerIsRunning(true)
-                return event
+            }}
+            onTouchEnd={(event) => {
+                setModelResetTimerIsRunning(true)
             }}
             className="w-full h-[803px]"
             ref={mountRef}
