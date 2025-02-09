@@ -50,6 +50,8 @@ export const ObjModelViewer = ({ modelFileName }: ObjModelViewerProps) => {
             )
             thisRef.current.controls.autoRotate = true
             thisRef.current.controls.autoRotateSpeed = 5
+            thisRef.current.controls.minDistance = 0.5
+            thisRef.current.controls.maxDistance = 1
             thisRef.current.renderer = new THREE.WebGLRenderer({
                 antialias: true,
             })
@@ -125,6 +127,9 @@ export const ObjModelViewer = ({ modelFileName }: ObjModelViewerProps) => {
     const resetModelPosition = () => {
         if (thisRef.current.camera) {
             updateCameraPosition({ x: 0, y: 0, z: 1 })
+        }
+        if (thisRef.current.controls) {
+            thisRef.current.controls.autoRotate = true
         }
         setModelResetTimerIsRunning(false)
     }
@@ -219,8 +224,18 @@ export const ObjModelViewer = ({ modelFileName }: ObjModelViewerProps) => {
 
     return (
         <div
+            onMouseDown={(event) => {
+                if (thisRef.current.controls) {
+                    thisRef.current.controls.autoRotate = false
+                }
+            }}
             onMouseUp={(event) => {
                 setModelResetTimerIsRunning(true)
+            }}
+            onTouchStart={(event) => {
+                if (thisRef.current.controls) {
+                    thisRef.current.controls.autoRotate = false
+                }
             }}
             onTouchEnd={(event) => {
                 setModelResetTimerIsRunning(true)
