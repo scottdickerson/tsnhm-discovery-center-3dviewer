@@ -224,20 +224,22 @@ export const ObjModelViewer = ({ modelFileName }: ObjModelViewerProps) => {
 
     return (
         <div
-            onMouseDown={(event) => {
+            onMouseDown={() => {
+                setModelResetTimerIsRunning(false)
                 if (thisRef.current.controls) {
                     thisRef.current.controls.autoRotate = false
                 }
             }}
-            onMouseUp={(event) => {
+            onMouseUp={() => {
                 setModelResetTimerIsRunning(true)
             }}
-            onTouchStart={(event) => {
+            onTouchStart={() => {
+                setModelResetTimerIsRunning(false)
                 if (thisRef.current.controls) {
                     thisRef.current.controls.autoRotate = false
                 }
             }}
-            onTouchEnd={(event) => {
+            onTouchEnd={() => {
                 setModelResetTimerIsRunning(true)
             }}
             className="w-full h-[803px]"
