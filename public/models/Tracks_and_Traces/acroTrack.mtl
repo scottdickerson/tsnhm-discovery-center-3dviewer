@@ -1,0 +1,23 @@
+# Blender 4.1.1 MTL File: 'acroTrack.blend'
+# www.blender.org
+
+newmtl main
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd H:/.shortcut-targets-by-id/1xAJlzHmaZ31vtcDlEgOCy4pLf8UpklLM/TSNHM Floor 1/04 - Planning/01 Content by Unit/Touchscreen planning/Tracks and Traces/Baker site single acro track 2023/Baker_site_single_acro_track_2023.jpg
+
+newmtl not_that.001
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd E:/TSNHM Floor1/interactive 3D models/rulerTextures/TD_Checker_BaseColor.png
+map_Ns E:/TSNHM Floor1/interactive 3D models/rulerTextures/TD_Checker_Roughness.png
+map_Bump -bm 1.000000 E:/TSNHM Floor1/interactive 3D models/rulerTextures/TD_Checker_Normal.png

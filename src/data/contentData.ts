@@ -13,6 +13,7 @@ export const contentData = {
         silhouetteSrc: '/silhouettes/sauropod.svg',
         src: '/footprints/sauropod.png',
         funFactSrc: '/funFactImages/Tracks and Traces Fun Fact 1 Medium.jpeg',
+        modelFileName: '/models/Tracks_and_Traces/largeSauro_track',
     },
     theropod: {
         detailId: 'theropod',
@@ -28,6 +29,7 @@ export const contentData = {
         silhouetteSrc: '/silhouettes/theropod.svg',
         src: '/footprints/theropod.png',
         funFactSrc: '/funFactImages/Tracks and Traces Fun Fact 2 Medium.jpeg',
+        modelFileName: '/models/Tracks_and_Traces/acroTrack',
     },
     footprint3: {
         detailId: 'footprint3',
@@ -43,5 +45,6 @@ export const contentData = {
         src: '/footprints/footprint3.png',
         silhouetteSrc: '/silhouettes/footprint3.svg',
         funFactSrc: '/funFactImages/Tracks and Traces Fun Fact 3 Medium.jpeg',
+        modelFileName: '/models/Tracks_and_Traces/blueHoleTrack',
     },
 } as const
