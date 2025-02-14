@@ -13,7 +13,11 @@ export const contentData = {
         silhouetteSrc: '/silhouettes/sauropod.svg',
         src: '/footprints/sauropod.png',
         funFactSrc: '/funFactImages/Tracks and Traces Fun Fact 1 Medium.jpeg',
-        modelFileName: '/models/Tracks_and_Traces/largeSauro_track',
+        modelFileName:
+            '/models/Tracks_and_Traces/birdSite_Sauro/largeSauro_track3',
+        modelScale: 0.65,
+        // modelScale: 0.45,
+        // modelFileName: '/models/Body_Fossils/Gskull_wRuler/Gskull_wRuler',
     },
     theropod: {
         detailId: 'theropod',
@@ -29,7 +33,10 @@ export const contentData = {
         silhouetteSrc: '/silhouettes/theropod.svg',
         src: '/footprints/theropod.png',
         funFactSrc: '/funFactImages/Tracks and Traces Fun Fact 2 Medium.jpeg',
-        modelFileName: '/models/Tracks_and_Traces/acroTrack',
+        modelFileName: '/models/Tracks_and_Traces/Baker_acro/acroTrack2',
+        modelScale: 1.2,
+        // modelFileName: '/models/Body_Fossils/Lepidus_noRuler/Lepidus_noRuler',
+        // modelScale: 0.03,
     },
     footprint3: {
         detailId: 'footprint3',
@@ -45,6 +52,9 @@ export const contentData = {
         src: '/footprints/footprint3.png',
         silhouetteSrc: '/silhouettes/footprint3.svg',
         funFactSrc: '/funFactImages/Tracks and Traces Fun Fact 3 Medium.jpeg',
-        modelFileName: '/models/Tracks_and_Traces/blueHoleTrack',
+        modelFileName: '/models/Tracks_and_Traces/BlueHole/blueHoleTrack',
+        modelScale: 1,
+        // modelFileName: '/models/Body_Fossils/poposaur_noRuler/poposaur_noRuler',
+        // modelScale: 0.0125,
     },
 } as const

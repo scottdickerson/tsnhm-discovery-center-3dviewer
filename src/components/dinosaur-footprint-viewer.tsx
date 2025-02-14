@@ -65,6 +65,7 @@ export default function DinosaurFootprintViewer({
                     {/*  Will be replaced by the object or video viewer */}
                     <ObjModelViewer
                         modelFileName={currentFootprintDetail.modelFileName}
+                        modelScale={currentFootprintDetail.modelScale}
                     />
                     {/* <img
                         src={currentFootprintDetail.src}

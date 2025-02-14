@@ -1,0 +1,35 @@
+# Blender 4.1.1 MTL File: 'blueHoleTrack5.blend'
+# www.blender.org
+
+newmtl Track
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd DefaultMaterial_BaseColor.png
+map_Ns DefaultMaterial_Roughness.png
+map_Bump -bm 1.000000 DefaultMaterial_Normal.png
+
+newmtl base
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd base_2_BaseColor.png
+map_Ns base_2_Roughness.png
+map_Bump -bm 1.000000 base_2_Normal.png
+
+newmtl ruler
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd TD_Checker_BaseColor.png
+map_Ns TD_Checker_Roughness.png
+map_Bump -bm 1.000000 TD_Checker_Normal.png
