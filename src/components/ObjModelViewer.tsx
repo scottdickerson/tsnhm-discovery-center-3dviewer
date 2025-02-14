@@ -6,8 +6,12 @@ import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader.js'
 
 export interface ObjModelViewerProps {
     modelFileName: string
+    modelScale: number
 }
-export const ObjModelViewer = ({ modelFileName }: ObjModelViewerProps) => {
+export const ObjModelViewer = ({
+    modelFileName,
+    modelScale = 1,
+}: ObjModelViewerProps) => {
     const thisRef = useRef<
         Partial<{
             camera: THREE.PerspectiveCamera
@@ -24,6 +28,7 @@ export const ObjModelViewer = ({ modelFileName }: ObjModelViewerProps) => {
     const mountRef = useRef<HTMLDivElement>(null)
     const [modelResetTimerIsRunning, setModelResetTimerIsRunning] =
         useState(false)
+    const [modelIsLoaded, setModelIsLoaded] = useState(false)
 
     // Standard scene setup in Three.js. Check "Creating a scene" manual for more information
     // https://threejs.org/docs/#manual/en/introduction/Creating-a-scene
@@ -53,7 +58,8 @@ export const ObjModelViewer = ({ modelFileName }: ObjModelViewerProps) => {
             thisRef.current.controls.minDistance = 0.5
             thisRef.current.controls.maxDistance = 1
             thisRef.current.renderer = new THREE.WebGLRenderer({
-                antialias: true,
+                precision: 'lowp',
+                powerPreference: 'high-performance',
             })
             thisRef.current.renderer.shadowMap.type = THREE.PCFSoftShadowMap
             thisRef.current.renderer.toneMapping = THREE.LinearToneMapping
@@ -85,17 +91,18 @@ export const ObjModelViewer = ({ modelFileName }: ObjModelViewerProps) => {
         const loader = new OBJLoader()
 
         // load a resource
-        mtlLoader.loadAsync(`${modelFileName}.mtl`).then((materials) => {
-            loader.setMaterials(materials)
-            loader
-                .loadAsync(
+        mtlLoader.load(
+            `${modelFileName}.mtl`,
+            (materials) => {
+                loader.setMaterials(materials)
+                loader.load(
                     // resource URL relative to the /public/index.html of the app
-                    `${modelFileName}.obj`
+                    `${modelFileName}.obj`,
                     // called when resource is loaded
-                )
-                .then(
+
                     (object) => {
                         thisRef.current.scene?.add(object)
+                        object.scale.set(modelScale, modelScale, modelScale)
 
                         // centering the model
                         // THREE.Box3() is AABB (axis-aligned bounding box). You can set it from the object you've loaded.
@@ -115,13 +122,26 @@ export const ObjModelViewer = ({ modelFileName }: ObjModelViewerProps) => {
                     },
                     // called when loading is in progresses
                     (xhr: ProgressEvent) => {
+                        console.log('loading')
                         const loadingPercentage = Math.ceil(
                             (xhr.loaded / xhr.total) * 100
                         )
                         console.log(loadingPercentage + '% loaded')
+                        if (loadingPercentage === 100) {
+                            // wait for the textures to load
+                            setTimeout(() => setModelIsLoaded(true), 3000)
+                        }
                     }
                 )
-        })
+            }, // called when loading is in progresses
+            (xhr: ProgressEvent) => {
+                console.log('loading')
+                const loadingPercentage = Math.ceil(
+                    (xhr.loaded / xhr.total) * 100
+                )
+                console.log(loadingPercentage + '% loaded')
+            }
+        )
     }, [])
 
     const resetModelPosition = () => {
@@ -144,6 +164,23 @@ export const ObjModelViewer = ({ modelFileName }: ObjModelViewerProps) => {
         return () => clearInterval(timer)
     }, [modelResetTimerIsRunning])
 
+    const handleWindowResize = useCallback(() => {
+        const width = mountRef.current?.clientWidth
+        const height = mountRef.current?.clientHeight
+        if (
+            width &&
+            height &&
+            thisRef.current.renderer &&
+            thisRef.current.camera
+        ) {
+            thisRef.current.renderer.setSize(width, height)
+            thisRef.current.camera.aspect = width / height
+            // Note that after making changes to most of camera properties you have to call
+            // .updateProjectionMatrix for the changes to take effect.
+            thisRef.current.camera.updateProjectionMatrix()
+        }
+    }, [])
+
     useEffect(() => {
         if (thisRef.current) {
             sceneSetup?.()
@@ -161,7 +198,7 @@ export const ObjModelViewer = ({ modelFileName }: ObjModelViewerProps) => {
                 }
             }
         }
-    }, [sceneSetup])
+    }, [sceneSetup, addLights, loadTheModel, handleWindowResize])
 
     const updateCameraPosition = ({
         x,
@@ -205,45 +242,37 @@ export const ObjModelViewer = ({ modelFileName }: ObjModelViewerProps) => {
         }
     }
 
-    const handleWindowResize = useCallback(() => {
-        const width = mountRef.current?.clientWidth
-        const height = mountRef.current?.clientHeight
-        if (
-            width &&
-            height &&
-            thisRef.current.renderer &&
-            thisRef.current.camera
-        ) {
-            thisRef.current.renderer.setSize(width, height)
-            thisRef.current.camera.aspect = width / height
-            // Note that after making changes to most of camera properties you have to call
-            // .updateProjectionMatrix for the changes to take effect.
-            thisRef.current.camera.updateProjectionMatrix()
-        }
-    }, [])
-
     return (
-        <div
-            onMouseDown={() => {
-                setModelResetTimerIsRunning(false)
-                if (thisRef.current.controls) {
-                    thisRef.current.controls.autoRotate = false
-                }
-            }}
-            onMouseUp={() => {
-                setModelResetTimerIsRunning(true)
-            }}
-            onTouchStart={() => {
-                setModelResetTimerIsRunning(false)
-                if (thisRef.current.controls) {
-                    thisRef.current.controls.autoRotate = false
-                }
-            }}
-            onTouchEnd={() => {
-                setModelResetTimerIsRunning(true)
-            }}
-            className="w-full h-[803px]"
-            ref={mountRef}
-        />
+        <>
+            <div
+                className={`w-full h-[803px] absolute bg-[#686868] flex pointer-events-none items-center justify-center transition-all duration-1000 ${modelIsLoaded ? 'opacity-0' : 'opacity-1'}`}
+            >
+                <div className="loader text-white text-xl animate-pulse">
+                    Loading...
+                </div>
+            </div>
+            <div
+                onMouseDown={() => {
+                    setModelResetTimerIsRunning(false)
+                    if (thisRef.current.controls) {
+                        thisRef.current.controls.autoRotate = false
+                    }
+                }}
+                onMouseUp={() => {
+                    setModelResetTimerIsRunning(true)
+                }}
+                onTouchStart={() => {
+                    setModelResetTimerIsRunning(false)
+                    if (thisRef.current.controls) {
+                        thisRef.current.controls.autoRotate = false
+                    }
+                }}
+                onTouchEnd={() => {
+                    setModelResetTimerIsRunning(true)
+                }}
+                className="w-full h-[803px]"
+                ref={mountRef}
+            />
+        </>
     )
 }

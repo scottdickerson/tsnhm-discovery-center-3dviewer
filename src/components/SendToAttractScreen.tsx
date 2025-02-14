@@ -5,7 +5,7 @@ export interface SendToAttractScreenProps {
 }
 
 export const SendToAttractScreen = ({
-    timeoutInMs = 30000,
+    timeoutInMs = 60000,
 }: SendToAttractScreenProps) => {
     const createTimer = () =>
         setTimeout(() => {
@@ -21,8 +21,14 @@ export const SendToAttractScreen = ({
 
     useEffect(() => {
         window.addEventListener('mousedown', clickListener)
+        window.addEventListener('mousemove', clickListener)
+        window.addEventListener('touchstart', clickListener)
+        window.addEventListener('touchmove', clickListener)
         return () => {
             window.removeEventListener('mousedown', clickListener)
+            window.removeEventListener('mousemove', clickListener)
+            window.removeEventListener('touchstart', clickListener)
+            window.removeEventListener('touchmove', clickListener)
             clearTimeout(redirectTimer)
         }
     })
