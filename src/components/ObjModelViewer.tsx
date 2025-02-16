@@ -3,15 +3,16 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader.js'
-
-export interface ObjModelViewerProps {
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+interface ObjModelViewerProps {
     modelFileName: string
-    modelScale: number
-    modelType: 'obj' | 'gltf'
+    modelScale?: number
+    modelType?: 'obj' | 'gltf'
     lightIntensity: number
 }
 export const ObjModelViewer = ({
     modelFileName,
+    modelType = 'obj',
     modelScale = 1,
     lightIntensity = 1,
 }: ObjModelViewerProps) => {
@@ -90,14 +91,26 @@ export const ObjModelViewer = ({
     }, [])
 
     const loadTheModel = useCallback(() => {
-        const mtlLoader = new MTLLoader()
-        // instantiate a loader
-        const loader = new OBJLoader()
+        if (modelType === 'gltf') {
+            const loader = new GLTFLoader()
+            loader.load(
+                `${modelFileName}.glb`,
+                (gltf) => {
+                    thisRef.current.model = gltf.scene
+                    setModelIsLoaded(true)
+                },
+                undefined,
+                (error) => {
+                    console.error(error)
+                }
+            )
+        } else {
+            const mtlLoader = new MTLLoader()
+            // instantiate a loader
+            const loader = new OBJLoader()
 
-        // load a resource
-        mtlLoader.load(
-            `${modelFileName}.mtl`,
-            (materials) => {
+            // load a resource
+            mtlLoader.load(`${modelFileName}.mtl`, (materials) => {
                 loader.setMaterials(materials)
                 loader.load(
                     // resource URL relative to the /public/index.html of the app
@@ -105,24 +118,7 @@ export const ObjModelViewer = ({
                     // called when resource is loaded
 
                     (object) => {
-                        thisRef.current.scene?.add(object)
-                        object.scale.set(modelScale, modelScale, modelScale)
-
-                        // centering the model
-                        // THREE.Box3() is AABB (axis-aligned bounding box). You can set it from the object you've loaded.
-                        // Then use .getCenter() method to get its center. Then simply subtract the vector of the center
-                        // from the default position of the object. https://threejs.org/docs/index.html#api/en/math/Box3
-                        const box = new THREE.Box3().setFromObject(object)
-                        const center = new THREE.Vector3()
-                        box.getCenter(center)
-                        object.position.sub(center)
-                        object.translateY(0.1)
-                        object.translateX(0.1)
-                        const quaternion = new THREE.Quaternion(0.5, 0, 0)
-                        object.setRotationFromQuaternion(quaternion)
-                        // make this element available inside of the whole component to do any animation later
                         thisRef.current.model = object
-                        thisRef.current.quaternion = quaternion
                     },
                     // called when loading is in progresses
                     (xhr: ProgressEvent) => {
@@ -133,19 +129,12 @@ export const ObjModelViewer = ({
                         console.log(loadingPercentage + '% loaded')
                         if (loadingPercentage === 100) {
                             // wait for the textures to load
-                            setTimeout(() => setModelIsLoaded(true), 3000)
+                            setTimeout(() => setModelIsLoaded(true), 2000)
                         }
                     }
                 )
-            }, // called when loading is in progresses
-            (xhr: ProgressEvent) => {
-                console.log('loading')
-                const loadingPercentage = Math.ceil(
-                    (xhr.loaded / xhr.total) * 100
-                )
-                console.log(loadingPercentage + '% loaded')
-            }
-        )
+            })
+        }
     }, [])
 
     const resetModelPosition = () => {
@@ -157,6 +146,27 @@ export const ObjModelViewer = ({
         }
         setModelResetTimerIsRunning(false)
     }
+
+    useEffect(() => {
+        if (thisRef.current.model && modelIsLoaded) {
+            thisRef.current.scene?.add(thisRef.current.model)
+            thisRef.current.model.scale.set(modelScale, modelScale, modelScale)
+            // make this element available inside of the whole component to do any animation later
+            // centering the model
+            // THREE.Box3() is AABB (axis-aligned bounding box). You can set it from the object you've loaded.
+            // Then use .getCenter() method to get its center. Then simply subtract the vector of the center
+            // from the default position of the object. https://threejs.org/docs/index.html#api/en/math/Box3
+            const box = new THREE.Box3().setFromObject(thisRef.current.model)
+            const center = new THREE.Vector3()
+            box.getCenter(center)
+            thisRef.current.model.position.sub(center)
+            thisRef.current.model.translateY(0.1)
+            thisRef.current.model.translateX(0.1)
+            const quaternion = new THREE.Quaternion(0.5, 0, 0)
+            thisRef.current.model.setRotationFromQuaternion(quaternion)
+            thisRef.current.quaternion = quaternion
+        }
+    }, [thisRef.current.model, modelIsLoaded])
 
     useEffect(() => {
         const timer = setInterval(() => {

@@ -11,10 +11,9 @@ export interface ContentData {
     silhouetteWidth?: number
     funFactSrc?: string
     modelFileName: string
-    modelScale: number
+    modelScale?: number
     lightIntensity: number
     modelType?: 'gltf' | 'obj' | 'video'
-    scale?: number
     position?: [number, number, number]
 }
 
@@ -38,7 +37,7 @@ export const contentData: Record<
             '/funFactImages/tracks_and_traces/Tracks and Traces Fun Fact 1.webp',
         modelFileName:
             '/models/Tracks_and_Traces/birdSite_Sauro/largeSauro_track3',
-        modelScale: 0.65,
+        modelScale: 0.55,
         lightIntensity: 1,
         modelType: 'gltf',
     },
@@ -57,7 +56,7 @@ export const contentData: Record<
         funFactSrc:
             '/funFactImages/tracks_and_traces/Tracks and Traces Fun Fact 2.webp',
         modelFileName: '/models/Tracks_and_Traces/Baker_acro/acroTrack2',
-        modelScale: 1.2,
+        modelScale: 1,
         lightIntensity: 1,
     },
     footprint3: {
@@ -75,7 +74,7 @@ export const contentData: Record<
         funFactSrc:
             '/funFactImages/tracks_and_traces/Tracks and Traces Fun Fact 3.webp',
         modelFileName: '/models/Tracks_and_Traces/BlueHole/blueHoleTrack',
-        modelScale: 1,
+        modelScale: 0.8,
         lightIntensity: 1,
     },
     gskull: {

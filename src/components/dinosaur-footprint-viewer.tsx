@@ -63,10 +63,19 @@ export default function DinosaurFootprintViewer({
             <div className="flex-1 space-y-10">
                 <div className="relative ">
                     {/*  Will be replaced by the object or video viewer */}
-                    <ObjModelViewer
-                        modelFileName={currentFootprintDetail.modelFileName}
-                        modelScale={currentFootprintDetail.modelScale}
-                    />
+
+                    {currentFootprintDetail?.modelType === 'gltf' ||
+                    currentFootprintDetail?.modelType === 'obj' ||
+                    !currentFootprintDetail.modelType ? (
+                        <ObjModelViewer
+                            modelFileName={currentFootprintDetail.modelFileName}
+                            modelScale={currentFootprintDetail.modelScale}
+                            lightIntensity={
+                                currentFootprintDetail.lightIntensity
+                            }
+                            modelType={currentFootprintDetail.modelType}
+                        />
+                    ) : null}
                     {/* <img
                         src={currentFootprintDetail.src}
                         alt="3D scan of a dinosaur footprint"
