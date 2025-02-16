@@ -7,10 +7,13 @@ import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader.js'
 export interface ObjModelViewerProps {
     modelFileName: string
     modelScale: number
+    modelType: 'obj' | 'gltf'
+    lightIntensity: number
 }
 export const ObjModelViewer = ({
     modelFileName,
     modelScale = 1,
+    lightIntensity = 1,
 }: ObjModelViewerProps) => {
     const thisRef = useRef<
         Partial<{
@@ -79,9 +82,10 @@ export const ObjModelViewer = ({
             // add some extra light, gives a bit of a texture pop
             const extraLight = new THREE.DirectionalLight()
             extraLight.position.set(0, 2000, 1000)
-            extraLight.intensity = 0.5
-            extraLight.castShadow = true
-            thisRef.current.scene.add(extraLight)
+            extraLight.intensity = lightIntensity
+            // extraLight.intensity = .1 // skull
+            // extraLight.intensity = 0.05 femur
+            // extraLight.intensity = 0.025 // sauropod
         }
     }, [])
 

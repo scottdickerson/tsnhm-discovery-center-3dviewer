@@ -53,12 +53,15 @@ export default function FunFactDrawer({
                                 <img
                                     src={selectedFootprintData.silhouetteSrc}
                                     alt="Sauropod silhouette"
-                                    className="object-contain"
+                                    style={{
+                                        minWidth: `${selectedFootprintData.silhouetteWidth ? selectedFootprintData.silhouetteWidth : '289'}px`,
+                                    }}
+                                    className={`object-contain`}
                                 />
                             </div>
                         </div>
                         <FunFactButton className="self-end" />
-                        <div className=" bg-funFactBackground h-14 rounded-tl-4xl "></div>
+                        <div className=" bg-funFactBackground h-14 rounded-tl-4xl  "></div>
                     </div>
                 </DrawerTrigger>
                 <DrawerContent className="bg-funFactBackground text-white border-none left-[34.5rem] right-[76px] rounded-tl-3xl rounded-tr-none rounded-bl-none pr-10">
