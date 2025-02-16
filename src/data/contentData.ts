@@ -55,9 +55,10 @@ export const contentData: Record<
         silhouetteSrc: '/silhouettes/tracks_and_traces/theropod.svg',
         funFactSrc:
             '/funFactImages/tracks_and_traces/Tracks and Traces Fun Fact 2.webp',
-        modelFileName: '/models/Tracks_and_Traces/Baker_acro/acroTrack2',
-        modelScale: 1,
+        modelFileName: '/models/Tracks_and_Traces/Baker_acro/acroTrack3',
+        modelScale: 1.2,
         lightIntensity: 1,
+        modelType: 'gltf',
     },
     footprint3: {
         detailId: 'footprint3',
@@ -73,9 +74,10 @@ export const contentData: Record<
         silhouetteSrc: '/silhouettes/tracks_and_traces/footprint3.svg',
         funFactSrc:
             '/funFactImages/tracks_and_traces/Tracks and Traces Fun Fact 3.webp',
-        modelFileName: '/models/Tracks_and_Traces/BlueHole/blueHoleTrack',
-        modelScale: 0.8,
+        modelFileName: '/models/Tracks_and_Traces/BlueHole/blueHoleTrack5',
+        modelScale: 1,
         lightIntensity: 1,
+        modelType: 'gltf',
     },
     gskull: {
         detailId: 'skull',
@@ -93,6 +95,7 @@ export const contentData: Record<
         lightIntensity: 0.1,
         modelScale: 0.45,
         modelFileName: '/models/Body_Fossils/Gskull_wRuler/Gskull_wRuler',
+        modelType: 'gltf',
     },
     lepidus: {
         detailId: 'lepidus',
@@ -108,8 +111,9 @@ export const contentData: Record<
         funFactSrc: '/funFactImages/body_fossils/lepidus_praecisio.webp',
         silhouetteSrc: '/silhouettes/body_fossils/Lepidus praecisio.svg',
         lightIntensity: 0.05,
-        modelFileName: '/models/Body_Fossils/Lepidus_noRuler/Lepidus_noRuler',
+        modelFileName: '/models/Body_Fossils/Lepidus_noRuler/Lepidus',
         modelScale: 0.03,
+        modelType: 'gltf',
     },
     poposaur: {
         detailId: 'poposaur',
@@ -125,7 +129,8 @@ export const contentData: Record<
         funFactSrc: '/funFactImages/body_fossils/PoposaurusYale.webp',
         silhouetteSrc: '/silhouettes/body_fossils/Poposaurus_gracilis.svg',
         lightIntensity: 0.025,
-        modelFileName: '/models/Body_Fossils/poposaur_noRuler/poposaur_noRuler',
-        modelScale: 0.0125,
+        modelFileName: '/models/Body_Fossils/poposaur_noRuler/poposaur',
+        modelScale: 0.0075,
+        modelType: 'gltf',
     },
 } as const
