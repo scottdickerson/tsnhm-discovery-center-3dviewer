@@ -48,18 +48,22 @@ export default function FunFactDrawer({
                 <DrawerTrigger asChild>
                     <div className="flex flex-col pl-4 pr-4 w-full">
                         {/* Dinosaur Silhouette */}
-                        <div className="relative basis-1/3">
-                            <div className="absolute -bottom-16 right-64">
-                                <img
-                                    src={selectedFootprintData.silhouetteSrc}
-                                    alt="Sauropod silhouette"
-                                    style={{
-                                        minWidth: `${selectedFootprintData.silhouetteWidth ? selectedFootprintData.silhouetteWidth : '289'}px`,
-                                    }}
-                                    className={`object-contain`}
-                                />
+                        {selectedFootprintData.silhouetteSrc ? (
+                            <div className="relative basis-1/3">
+                                <div className="absolute -bottom-16 right-64">
+                                    <img
+                                        src={
+                                            selectedFootprintData.silhouetteSrc
+                                        }
+                                        alt="Sauropod silhouette"
+                                        style={{
+                                            minWidth: `${selectedFootprintData.silhouetteWidth ? selectedFootprintData.silhouetteWidth : '289'}px`,
+                                        }}
+                                        className={`object-contain`}
+                                    />
+                                </div>
                             </div>
-                        </div>
+                        ) : null}
                         <FunFactButton className="self-end" />
                         <div className=" bg-funFactBackground h-14 rounded-tl-4xl  "></div>
                     </div>

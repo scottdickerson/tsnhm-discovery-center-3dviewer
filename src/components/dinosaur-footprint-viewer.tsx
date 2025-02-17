@@ -46,10 +46,10 @@ export default function DinosaurFootprintViewer({
                                 >
                                     <div className="text-xl leading-6 w-full">
                                         <div className="font-bold ">
-                                            {footprintDetail.title}
+                                            {footprintDetail.buttonLine1}
                                         </div>
                                         <div className="font-medium">
-                                            {footprintDetail.location}
+                                            {footprintDetail.buttonLine2}
                                         </div>
                                     </div>
                                 </Button>
@@ -68,7 +68,13 @@ export default function DinosaurFootprintViewer({
                     currentFootprintDetail?.modelType === 'obj' ||
                     !currentFootprintDetail.modelType ? (
                         <ObjModelViewer {...currentFootprintDetail} />
-                    ) : null}
+                    ) : (
+                        <video
+                            src={`${currentFootprintDetail.modelFileName}.mp4`}
+                            autoPlay
+                            muted
+                        />
+                    )}
                     {/* <img
                         src={currentFootprintDetail.src}
                         alt="3D scan of a dinosaur footprint"
