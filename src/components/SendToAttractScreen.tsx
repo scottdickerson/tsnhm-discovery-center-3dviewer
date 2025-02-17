@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 export interface SendToAttractScreenProps {
     timeoutInMs?: number
@@ -12,11 +12,11 @@ export const SendToAttractScreen = ({
             if (typeof window !== 'undefined') window.location.href = '/'
         }, timeoutInMs)
 
-    let redirectTimer = createTimer()
+    let redirectTimer = useRef<ReturnType<typeof setTimeout> | undefined>()
 
     const clickListener = () => {
-        clearTimeout(redirectTimer)
-        redirectTimer = createTimer()
+        clearTimeout(redirectTimer.current)
+        redirectTimer.current = createTimer()
     }
 
     useEffect(() => {
@@ -29,9 +29,9 @@ export const SendToAttractScreen = ({
             window.removeEventListener('mousemove', clickListener)
             window.removeEventListener('touchstart', clickListener)
             window.removeEventListener('touchmove', clickListener)
-            clearTimeout(redirectTimer)
+            clearTimeout(redirectTimer.current)
         }
-    })
+    }, [])
 
     return null
 }
