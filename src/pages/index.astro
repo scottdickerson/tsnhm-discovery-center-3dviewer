@@ -1,8 +1,15 @@
 ---
 import DinosaurFootprintViewer from '@/components/dinosaur-footprint-viewer'
 import Layout from '../layouts/Layout.astro'
+import { contentData, type ContentDataKeys } from '@/data/contentData'
+
+const selectedFootprint =
+    (Object.keys(contentData)[0] as ContentDataKeys) ?? ('sauropod' as const)
 ---
 
 <Layout title="Discovery Center">
-    <DinosaurFootprintViewer selectedFootprint={'sauropod'} client:visible />
+    <DinosaurFootprintViewer
+        selectedFootprint={selectedFootprint}
+        client:visible
+    />
 </Layout>

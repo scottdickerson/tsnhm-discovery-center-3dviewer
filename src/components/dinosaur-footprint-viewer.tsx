@@ -11,6 +11,7 @@ export default function DinosaurFootprintViewer({
     selectedFootprint,
 }: DinosaurFootprintViewerProps) {
     const currentFootprintDetail = contentData[selectedFootprint]
+
     return (
         <div className="flex pb-0 bg-gray-900 text-white min-h-screen">
             {/* Sidebar */}
@@ -66,11 +67,11 @@ export default function DinosaurFootprintViewer({
 
                     {currentFootprintDetail?.modelType === 'gltf' ||
                     currentFootprintDetail?.modelType === 'obj' ||
-                    !currentFootprintDetail.modelType ? (
+                    !currentFootprintDetail?.modelType ? (
                         <ObjModelViewer {...currentFootprintDetail} />
                     ) : (
                         <video
-                            src={`${currentFootprintDetail.modelFileName}.mp4`}
+                            src={`${currentFootprintDetail?.modelFileName}.mp4`}
                             autoPlay
                             muted
                         />
