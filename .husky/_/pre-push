@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname "$0")/h"
 
+git lfs push --all origin main
 npm run build
