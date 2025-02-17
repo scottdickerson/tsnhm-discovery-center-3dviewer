@@ -77,7 +77,7 @@ export const contentData: Record<
             '/funFactImages/tracks_and_traces/Tracks and Traces Fun Fact 3.webp',
         modelFileName: '/models/Tracks_and_Traces/BlueHole/blueHoleTrack5',
         modelScale: 0.8,
-        modelPosition: [0, -0.2, 0],
+        modelPosition: [0, 0, 0],
         lightIntensity: 1,
         modelType: 'gltf',
     },
