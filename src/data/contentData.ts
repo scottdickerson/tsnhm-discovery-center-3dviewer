@@ -31,7 +31,7 @@ export type ContentDataKeys =
     | 'body-model'
     | 'surface-details'
 
-export const contentData: Record<ContentDataKeys, ContentData> = {
+export const contentData: Record<ContentDataKeys, ContentData> | {} = {
     ...(import.meta.env.PUBLIC_INTERACTIVE === 'tracks_and_traces' ||
     !import.meta.env.PUBLIC_INTERACTIVE
         ? {
