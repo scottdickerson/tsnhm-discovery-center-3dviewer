@@ -4,17 +4,22 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-interface ObjModelViewerProps {
-    modelFileName: string
-    modelScale?: number
-    modelType?: 'obj' | 'gltf'
-    lightIntensity: number
-}
+import type { ContentData } from '@/data/contentData'
+type ObjModelViewerProps = Pick<
+    ContentData,
+    | 'modelFileName'
+    | 'modelScale'
+    | 'modelType'
+    | 'lightIntensity'
+    | 'modelRotation'
+>
 export const ObjModelViewer = ({
     modelFileName,
     modelType = 'obj',
     modelScale = 1,
     lightIntensity = 1,
+    modelRotation = [0.5, 0, 0],
+    modelPosition = [0.1, 0.1, 0],
 }: ObjModelViewerProps) => {
     const thisRef = useRef<
         Partial<{
@@ -160,9 +165,10 @@ export const ObjModelViewer = ({
             const center = new THREE.Vector3()
             box.getCenter(center)
             thisRef.current.model.position.sub(center)
-            thisRef.current.model.translateY(0.1)
-            thisRef.current.model.translateX(0.1)
-            const quaternion = new THREE.Quaternion(0.5, 0, 0)
+            thisRef.current.model.translateX(modelPosition[0])
+            thisRef.current.model.translateY(modelPosition[1])
+            thisRef.current.model.translateZ(modelPosition[2])
+            const quaternion = new THREE.Quaternion(...modelRotation)
             thisRef.current.model.setRotationFromQuaternion(quaternion)
             thisRef.current.quaternion = quaternion
         }

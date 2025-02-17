@@ -74,6 +74,7 @@ export default function DinosaurFootprintViewer({
                                 currentFootprintDetail.lightIntensity
                             }
                             modelType={currentFootprintDetail.modelType}
+                            modelRotation={currentFootprintDetail.modelRotation}
                         />
                     ) : null}
                     {/* <img

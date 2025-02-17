@@ -14,7 +14,8 @@ export interface ContentData {
     modelScale?: number
     lightIntensity: number
     modelType?: 'gltf' | 'obj' | 'video'
-    position?: [number, number, number]
+    modelPosition?: [number, number, number]
+    modelRotation?: [number, number, number]
 }
 
 export const contentData: Record<
@@ -75,7 +76,8 @@ export const contentData: Record<
         funFactSrc:
             '/funFactImages/tracks_and_traces/Tracks and Traces Fun Fact 3.webp',
         modelFileName: '/models/Tracks_and_Traces/BlueHole/blueHoleTrack5',
-        modelScale: 1,
+        modelScale: 0.8,
+        modelPosition: [0, -0.2, 0],
         lightIntensity: 1,
         modelType: 'gltf',
     },
@@ -114,6 +116,8 @@ export const contentData: Record<
         modelFileName: '/models/Body_Fossils/Lepidus_noRuler/Lepidus',
         modelScale: 0.03,
         modelType: 'gltf',
+        modelRotation: [0, 0, 0],
+        modelPosition: [0, -4.0, 0],
     },
     poposaur: {
         detailId: 'poposaur',
@@ -130,7 +134,9 @@ export const contentData: Record<
         silhouetteSrc: '/silhouettes/body_fossils/Poposaurus_gracilis.svg',
         lightIntensity: 0.025,
         modelFileName: '/models/Body_Fossils/poposaur_noRuler/poposaur',
-        modelScale: 0.0075,
+        modelScale: 0.005,
         modelType: 'gltf',
+        modelRotation: [0, 0, 0],
+        modelPosition: [0, -5.0, 0],
     },
 } as const
