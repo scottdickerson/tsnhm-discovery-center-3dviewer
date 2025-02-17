@@ -67,15 +67,7 @@ export default function DinosaurFootprintViewer({
                     {currentFootprintDetail?.modelType === 'gltf' ||
                     currentFootprintDetail?.modelType === 'obj' ||
                     !currentFootprintDetail.modelType ? (
-                        <ObjModelViewer
-                            modelFileName={currentFootprintDetail.modelFileName}
-                            modelScale={currentFootprintDetail.modelScale}
-                            lightIntensity={
-                                currentFootprintDetail.lightIntensity
-                            }
-                            modelType={currentFootprintDetail.modelType}
-                            modelRotation={currentFootprintDetail.modelRotation}
-                        />
+                        <ObjModelViewer {...currentFootprintDetail} />
                     ) : null}
                     {/* <img
                         src={currentFootprintDetail.src}

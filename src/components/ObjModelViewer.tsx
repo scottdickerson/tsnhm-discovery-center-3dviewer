@@ -12,6 +12,7 @@ type ObjModelViewerProps = Pick<
     | 'modelType'
     | 'lightIntensity'
     | 'modelRotation'
+    | 'modelPosition'
 >
 export const ObjModelViewer = ({
     modelFileName,

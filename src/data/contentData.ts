@@ -98,6 +98,7 @@ export const contentData: Record<
         modelScale: 0.45,
         modelFileName: '/models/Body_Fossils/Gskull_wRuler/Gskull_wRuler',
         modelType: 'gltf',
+        modelPosition: [0, 0.2, 0],
     },
     lepidus: {
         detailId: 'lepidus',
@@ -117,7 +118,7 @@ export const contentData: Record<
         modelScale: 0.03,
         modelType: 'gltf',
         modelRotation: [0, 0, 0],
-        modelPosition: [0, -4.0, 0],
+        modelPosition: [0, 0, 0],
     },
     poposaur: {
         detailId: 'poposaur',
@@ -137,6 +138,6 @@ export const contentData: Record<
         modelScale: 0.005,
         modelType: 'gltf',
         modelRotation: [0, 0, 0],
-        modelPosition: [0, -5.0, 0],
+        modelPosition: [0, 0, 0],
     },
 } as const
