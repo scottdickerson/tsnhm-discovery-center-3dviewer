@@ -14,6 +14,8 @@ export default {
             },
             backgroundImage: {
                 'sidebar-pattern': "url('/sidebarBackground.png')",
+                'model-background':
+                    "url('/Background_BehindOBJFiles_1440x810.svg')",
             },
             borderRadius: {
                 '4xl': '150px',

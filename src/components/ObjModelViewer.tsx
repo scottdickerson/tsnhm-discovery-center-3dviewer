@@ -49,7 +49,6 @@ export const ObjModelViewer = ({
             const height = mountRef.current.clientHeight
 
             thisRef.current.scene = new THREE.Scene()
-            thisRef.current.scene.background = new THREE.Color(0x868b86)
             thisRef.current.camera = new THREE.PerspectiveCamera(
                 75, // fov = field of view
                 width / height, // aspect ratio
@@ -70,6 +69,7 @@ export const ObjModelViewer = ({
             thisRef.current.renderer = new THREE.WebGLRenderer({
                 precision: 'lowp',
                 powerPreference: 'high-performance',
+                alpha: true,
             })
             thisRef.current.renderer.shadowMap.type = THREE.PCFSoftShadowMap
             thisRef.current.renderer.toneMapping = THREE.LinearToneMapping
@@ -266,9 +266,9 @@ export const ObjModelViewer = ({
     return (
         <>
             <div
-                className={`w-full h-[803px] absolute bg-[#868b86] flex pointer-events-none items-center justify-center transition-all duration-1000 ${modelIsLoaded ? 'opacity-0' : 'opacity-1'}`}
+                className={`w-full h-[803px] absolute bg-model-background flex pointer-events-none items-center justify-center transition-all duration-1000 ${modelIsLoaded ? 'opacity-0' : 'opacity-1'}`}
             >
-                <div className="loader text-white text-xl animate-pulse">
+                <div className="text-white text-xl animate-pulse">
                     Loading...
                 </div>
             </div>
@@ -291,7 +291,7 @@ export const ObjModelViewer = ({
                 onTouchEnd={() => {
                     setModelResetTimerIsRunning(true)
                 }}
-                className="w-full h-[803px]"
+                className="bg-model-background  w-full h-[803px]"
                 ref={mountRef}
             />
         </>

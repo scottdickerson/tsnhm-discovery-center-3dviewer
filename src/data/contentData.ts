@@ -71,7 +71,8 @@ export const contentData: Record<ContentDataKeys, ContentData> = {
                   tombstoneLine4: 'Courtesy Paul Baker',
                   funFact:
                       '<p>Flooding and fast moving waters can destroy fossil footprints.</p> <p>Digital scanning preserves information about these prints for the future.</p>',
-                  silhouetteSrc: '/silhouettes/tracks_and_traces/theropod.svg',
+                  silhouetteSrc:
+                      '/silhouettes/tracks_and_traces/Acrocanthsaur.svg',
                   funFactSrc:
                       '/funFactImages/tracks_and_traces/Tracks and Traces Fun Fact 2.webp',
                   modelFileName:
@@ -94,7 +95,7 @@ export const contentData: Record<ContentDataKeys, ContentData> = {
                   funFact:
                       '<p>This is one of the largest theropod prints ever documented at Dinosaur Valley State Park.</p><p>It is usually underwater, but was briefly visible during a drought. </p> ',
                   silhouetteSrc:
-                      '/silhouettes/tracks_and_traces/footprint3.svg',
+                      '/silhouettes/tracks_and_traces/Acrocanthsaur.svg',
                   funFactSrc:
                       '/funFactImages/tracks_and_traces/Tracks and Traces Fun Fact 3.webp',
                   modelFileName:
