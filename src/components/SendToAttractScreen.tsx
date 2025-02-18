@@ -7,12 +7,14 @@ export interface SendToAttractScreenProps {
 export const SendToAttractScreen = ({
     timeoutInMs = 60000,
 }: SendToAttractScreenProps) => {
-    const createTimer = () =>
-        setTimeout(() => {
-            if (typeof window !== 'undefined') window.location.href = '/'
+    
+    const createTimer = () => {
+        return setTimeout(() => {
+            if (typeof window !== 'undefined' && window.location.pathname !== '/') window.location.href = '/'
         }, timeoutInMs)
-
-    let redirectTimer = useRef<ReturnType<typeof setTimeout> | undefined>()
+    }
+    
+    const redirectTimer = useRef<ReturnType<typeof setTimeout> | undefined>(createTimer())
 
     const clickListener = () => {
         clearTimeout(redirectTimer.current)
