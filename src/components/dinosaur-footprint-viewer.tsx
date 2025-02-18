@@ -74,13 +74,9 @@ export default function DinosaurFootprintViewer({
                             src={`${currentFootprintDetail?.modelFileName}.mp4`}
                             autoPlay
                             muted
+                            loop
                         />
                     )}
-                    {/* <img
-                        src={currentFootprintDetail.src}
-                        alt="3D scan of a dinosaur footprint"
-                        className="object-cover w-full max-h-[803px]"
-                    /> */}
                 </div>
                 <InfoBox selectedFootprint={selectedFootprint} />
             </div>

@@ -106,7 +106,8 @@ export const contentData: Record<ContentDataKeys, ContentData> = {
               },
           }
         : {}),
-    ...(import.meta.env.PUBLIC_INTERACTIVE === 'body_fossils'
+    ...(import.meta.env.PUBLIC_INTERACTIVE === 'body_fossils' ||
+    !import.meta.env.PUBLIC_INTERACTIVE
         ? {
               gskull: {
                   detailId: 'skull',
@@ -180,7 +181,8 @@ export const contentData: Record<ContentDataKeys, ContentData> = {
               },
           }
         : {}),
-    ...(import.meta.env.PUBLIC_INTERACTIVE === 'putting_it_together'
+    ...(import.meta.env.PUBLIC_INTERACTIVE === 'putting_it_together' ||
+    !import.meta.env.PUBLIC_INTERACTIVE
         ? {
               skeleton: {
                   detailId: 'skeleton',
