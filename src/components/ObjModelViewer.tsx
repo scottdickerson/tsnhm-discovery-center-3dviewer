@@ -266,7 +266,7 @@ export const ObjModelViewer = ({
     return (
         <>
             <div
-                className={`w-full h-[803px] absolute bg-model-background flex pointer-events-none items-center justify-center transition-all duration-1000 ${modelIsLoaded ? 'opacity-0' : 'opacity-1'}`}
+                className={`w-full h-[803px] absolute bg-model-background bg-no-repeat bg-cover flex pointer-events-none items-center justify-center transition-all duration-1000 ${modelIsLoaded ? 'opacity-0' : 'opacity-1'}`}
             >
                 <div className="text-white text-xl animate-pulse">
                     Loading...
@@ -291,7 +291,7 @@ export const ObjModelViewer = ({
                 onTouchEnd={() => {
                     setModelResetTimerIsRunning(true)
                 }}
-                className="bg-model-background  w-full h-[803px]"
+                className="bg-model-background bg-no-repeat bg-cover w-full h-[803px]"
                 ref={mountRef}
             />
         </>
