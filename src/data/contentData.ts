@@ -196,7 +196,7 @@ export const contentData: Record<ContentDataKeys, ContentData> = {
                   tombstoneLine4: 'Artist Collaboration',
                   funFact:
                       '<p>This animal\'s name means "ostrich mimic."</p><p> Paleoartists study the skeletons of modern day ostriches to better understand this dinosaur\'s skeletal structure.</p>',
-                  modelFileName: '/models/Putting_it_Together/skelturn4',
+                  modelFileName: '/models/Putting_it_Together/skelturn2',
                   modelType: 'video',
               },
               'body-model': {
@@ -210,7 +210,7 @@ export const contentData: Record<ContentDataKeys, ContentData> = {
                   tombstoneLine4: 'Courtesy Karen Carr',
                   funFact:
                       '<p>Because Ornithomimus was an herbivore, the artist sculpted a large belly area.</p><p> Plant-eating animals generally need more space for their stomach and intestines than meat-eating animals. </p>',
-                  modelFileName: '/models/Putting_it_Together/skelturn4',
+                  modelFileName: '/models/Putting_it_Together/greyTurn_1',
                   modelType: 'video',
               },
               'surface-details': {

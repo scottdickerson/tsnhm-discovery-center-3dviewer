@@ -68,7 +68,17 @@ export default function DinosaurFootprintViewer({
                     {currentFootprintDetail?.modelType === 'gltf' ||
                     currentFootprintDetail?.modelType === 'obj' ||
                     !currentFootprintDetail?.modelType ? (
-                        <ObjModelViewer {...currentFootprintDetail} />
+                        <>
+                            <ObjModelViewer {...currentFootprintDetail} />
+                            <img
+                                src="/touch-white.png"
+                                className="absolute bottom-0 left-10 pointer-events-none w-40 z-10 "
+                            />
+                            <img
+                                src="/pinch-to-zoom-white.png"
+                                className="absolute bottom-0 right-10 pointer-events-none w-48 z-10"
+                            />
+                        </>
                     ) : (
                         <video
                             src={`${currentFootprintDetail?.modelFileName}.mp4`}
