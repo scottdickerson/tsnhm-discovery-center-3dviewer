@@ -36,6 +36,7 @@ export const ObjModelViewer = ({
     >({})
 
     const mountRef = useRef<HTMLDivElement>(null)
+    const [userHasInteracted, setUserHasInteracted] = useState(false)
     const [modelResetTimerIsRunning, setModelResetTimerIsRunning] =
         useState(false)
     const [modelIsLoaded, setModelIsLoaded] = useState(false)
@@ -272,12 +273,19 @@ export const ObjModelViewer = ({
                     Loading...
                 </div>
             </div>
+            {!userHasInteracted ? (
+                <img
+                    src="/pinch-to-zoom-blue.png"
+                    className="absolute bottom-0 right-10 pointer-events-none w-48 z-10 animate-pulse"
+                />
+            ) : null}
             <div
                 onMouseDown={() => {
                     setModelResetTimerIsRunning(false)
                     if (thisRef.current.controls) {
                         thisRef.current.controls.autoRotate = false
                     }
+                    setUserHasInteracted(true)
                 }}
                 onMouseUp={() => {
                     setModelResetTimerIsRunning(true)
@@ -287,6 +295,7 @@ export const ObjModelViewer = ({
                     if (thisRef.current.controls) {
                         thisRef.current.controls.autoRotate = false
                     }
+                    setUserHasInteracted(true)
                 }}
                 onTouchEnd={() => {
                     setModelResetTimerIsRunning(true)
