@@ -36,6 +36,8 @@ curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.s
 sudo apt install -y git-lfs
 git lfs install
 
+git config --global user.email dickerson.sd@gmail.com
+
 # Install Nginx
 sudo apt install -y nginx
 sudo systemctl enable nginx

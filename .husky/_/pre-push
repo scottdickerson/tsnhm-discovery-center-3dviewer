@@ -1,5 +1,2 @@
 #!/usr/bin/env sh
-. "$(dirname -- "$0")/husky.sh"
-
-git lfs push --all origin main
-npm run build
+. "$(dirname "$0")/h"
