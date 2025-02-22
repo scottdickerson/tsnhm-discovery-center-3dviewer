@@ -15,8 +15,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "format:fix": "prettier --write .",
-    "production": "serve -l 3000 dist",
-    "prepare": "husky install"
+    "production": "serve -l 3000 dist"
   },
   "dependencies": {
     "@astrojs/react": "^4.1.0",
