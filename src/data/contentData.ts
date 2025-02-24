@@ -226,7 +226,7 @@ export const contentData: Record<ContentDataKeys, ContentData> = {
                       '<p>In a few cases artistic reconstruction, coloration can be informed by fossil pigment analysis.</p><p>For this model, the paleoartist used color patterns from a road-runner to inspire her Ornithomimus illustration.</p> ',
                   funFactSrc:
                       '/funFactImages/putting_it_together/Roadrunner.webp',
-                  modelFileName: '/models/Putting_it_Together/skelturn4',
+                  modelFileName: '/models/Putting_it_Together/feathered Turn_3',
                   modelType: 'video',
               },
           }
