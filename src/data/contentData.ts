@@ -76,8 +76,9 @@ export const contentData: Record<ContentDataKeys, ContentData> = {
                   funFactSrc:
                       '/funFactImages/tracks_and_traces/Tracks and Traces Fun Fact 2.webp',
                   modelFileName:
-                      '/models/Tracks_and_Traces/Baker_acro/acroTrack3',
-                  modelScale: 1.2,
+                      '/models/Tracks_and_Traces/BlueHole/blueHoleTrack5',
+                  modelScale: 0.8,
+                  modelPosition: [0, 0, 0],
                   lightIntensity: 1,
                   modelType: 'gltf',
               },
@@ -99,9 +100,8 @@ export const contentData: Record<ContentDataKeys, ContentData> = {
                   funFactSrc:
                       '/funFactImages/tracks_and_traces/Tracks and Traces Fun Fact 3.webp',
                   modelFileName:
-                      '/models/Tracks_and_Traces/BlueHole/blueHoleTrack5',
-                  modelScale: 0.8,
-                  modelPosition: [0, 0, 0],
+                      '/models/Tracks_and_Traces/Baker_acro/acroTrack3',
+                  modelScale: 1.2,
                   lightIntensity: 1,
                   modelType: 'gltf',
               },
