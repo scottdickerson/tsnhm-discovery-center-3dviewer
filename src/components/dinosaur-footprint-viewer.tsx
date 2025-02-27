@@ -1,8 +1,9 @@
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { contentData } from '@/data/contentData'
+import { contentData, InteractiveIdEnum } from '@/data/contentData'
 import { InfoBox } from './InfoBox'
 import { ObjModelViewer } from './ObjModelViewer'
+import parse from 'html-react-parser'
 
 export interface DinosaurFootprintViewerProps {
     selectedFootprint: keyof typeof contentData
@@ -26,9 +27,12 @@ export default function DinosaurFootprintViewer({
                         </span>
                     </h1>
                     <p className="text-2xl leading-9 text-white px-4">
-                        High-tech tools can create digital models of fossils.
-                        Now scientists can preserve, share, and study these
-                        traces of the past in new ways.
+                        {parse(
+                            currentFootprintDetail?.interactiveId ===
+                                InteractiveIdEnum.PUTTING_IT_TOGETHER
+                                ? 'Digital artists can use scans of fossils and software programs to create lifelike virtual models of ancient animals. Follow the steps an artist took to create a model <em>Ornithomimus</em>.'
+                                : 'High-tech tools can create digital models of fossils. Now scientists can preserve, share, and study these traces of the past in new ways.'
+                        )}
                     </p>
                     <div className="flex flex-col gap-8 mt-20">
                         {Object.entries(contentData).map(
@@ -50,7 +54,10 @@ export default function DinosaurFootprintViewer({
                                             {footprintDetail.buttonLine1}
                                         </div>
                                         <div className="font-medium">
-                                            {footprintDetail.buttonLine2}
+                                            {parse(
+                                                footprintDetail.buttonLine2 ??
+                                                    ''
+                                            )}
                                         </div>
                                     </div>
                                 </Button>

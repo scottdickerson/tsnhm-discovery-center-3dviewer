@@ -85,7 +85,15 @@ export default function FunFactDrawer({
                                     asChild
                                 >
                                     <div className="flex flex-col gap-2">
-                                        {parse(selectedFootprintData.funFact)}
+                                        {parse(
+                                            selectedFootprintData.funFact
+                                                .split('\n')
+                                                .map(
+                                                    (line, index) =>
+                                                        `<p>${line}</p>`
+                                                )
+                                                .join('')
+                                        )}
                                     </div>
                                 </DrawerDescription>
                             </DrawerHeader>

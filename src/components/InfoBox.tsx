@@ -1,5 +1,6 @@
 import { contentData } from '@/data/contentData'
 import FunFactDrawer from './FunFact'
+import parse from 'html-react-parser'
 
 export interface InfoBoxProps {
     selectedFootprint: keyof typeof contentData
@@ -15,21 +16,21 @@ export const InfoBox = ({ selectedFootprint }: InfoBoxProps) => {
                     {currentFootprintDetail.headerText}
                 </h2>
                 <p className="text-gray-900 text-xl w-[698px]">
-                    {currentFootprintDetail.leadText}
+                    {parse(currentFootprintDetail.leadText)}
                 </p>
             </div>
             <div className="align-top flex flex-col items-end text-lg text-black/60 leading-6 h-[174px]">
                 <span className="inline-block">
-                    {currentFootprintDetail.buttonLine1}
+                    {parse(currentFootprintDetail.tombstoneLine1)}
                 </span>
                 <span className="inline-block">
-                    {currentFootprintDetail.tombstoneLine2}
+                    {parse(currentFootprintDetail.tombstoneLine2)}
                 </span>
                 <span className="inline-block">
-                    {currentFootprintDetail.tombstoneLine3}
+                    {parse(currentFootprintDetail.tombstoneLine3 ?? '')}
                 </span>
                 <span className="inline-block">
-                    {currentFootprintDetail.tombstoneLine4}
+                    {parse(currentFootprintDetail.tombstoneLine4)}
                 </span>
             </div>
             <FunFactDrawer selectedFootprint={selectedFootprint} />
