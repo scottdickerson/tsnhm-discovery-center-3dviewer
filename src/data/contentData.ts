@@ -122,7 +122,9 @@ export const contentData: Record<ContentDataKeys, ContentData> = {
                   tombstoneLine3: 'Computed Tomography Scan, 2021',
                   tombstoneLine4: 'Courtesy Therese Flink and Richard Ketcham',
                   funFact:
-                      '<p>Gustfsonia is part of a larger group of extinct animals that are sometimes called "bear-dogs."</p> <p>This animal lived between 36.6 and 38.1 million years ago in what is now West Texas. </p>',
+                      '<p>Gustafsonia is part of a larger group of extinct animals that are sometimes called "bear-dogs."</p> <p>This animal lived between 36.6 and 38.1 million years ago in what is now West Texas. </p>',
+                  funFactSrc:
+                      '/funFactImages/body_fossils/Gustafsonia cognita_NewBackground.webp',
                   silhouetteSrc:
                       '/silhouettes/body_fossils/Gustafsonia-cognita.svg',
                   silhouetteWidth: 150,
@@ -210,7 +212,7 @@ export const contentData: Record<ContentDataKeys, ContentData> = {
                   tombstoneLine4: 'Courtesy Karen Carr',
                   funFact:
                       '<p>Because Ornithomimus was an herbivore, the artist sculpted a large belly area.</p><p> Plant-eating animals generally need more space for their stomach and intestines than meat-eating animals. </p>',
-                  modelFileName: '/models/Putting_it_Together/greyTurn_1',
+                  modelFileName: '/models/Putting_it_Together/greyTurn_2',
                   modelType: 'video',
               },
               'surface-details': {
