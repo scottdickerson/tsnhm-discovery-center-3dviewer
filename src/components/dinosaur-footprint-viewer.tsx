@@ -16,7 +16,7 @@ export default function DinosaurFootprintViewer({
     return (
         <div className="flex pb-0 bg-gray-900 text-white min-h-screen">
             {/* Sidebar */}
-            <div className="w-[480px] flex flex-col gap-4 p-10 bg-sidebar-pattern h-svh overflow-y-auto">
+            <div className="w-[480px] flex flex-col gap-4 p-10 bg-sidebar-pattern overflow-y-hidden">
                 <Card className="p-10 bg-black/50 text-lime-400 pb-32 border-none rounded-3xl">
                     <h1 className="mb-8 font-commissioner leading-[80px] flex flex-col">
                         <span className="text-[53px]  font-semibold inline-block">
