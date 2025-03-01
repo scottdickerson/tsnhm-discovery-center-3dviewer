@@ -20,9 +20,11 @@ const FunFactButton = forwardRef<HTMLButtonElement, ButtonProps>(
             <Button
                 {...props}
                 ref={ref}
-                className={`bg-funFactBackground hover:bg-funFactBackground text-[#9FD71C] focus:outline-none focus:border-none font-black rounded-none rounded-t-2xl px-10 py-8 text-3xl translate-y-[1px] ${className}`}
+                className={`bg-funFactBackground hover:bg-funFactBackground text-[#9FD71C] focus:outline-none focus:border-none font-black rounded-none rounded-t-2xl px-10 py-8 text-3xl translate-y-[10px] ${className}`}
             >
-                FUN FACT
+                <span className="animate-bounce duration-2000 ease-in-out">
+                    FUN FACT
+                </span>
             </Button>
         )
     }
@@ -84,7 +86,7 @@ export default function FunFactDrawer({
                                     className="text-white/90 space-y-4 text-[22px] leading-8"
                                     asChild
                                 >
-                                    <div className="flex flex-col gap-2">
+                                    <div className="flex flex-col gap-2 max-w-[516px]">
                                         {parse(
                                             selectedFootprintData.funFact
                                                 .split('\n')
