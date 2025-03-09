@@ -8,7 +8,7 @@
     "dev:tracks_and_traces": "cross-env PUBLIC_INTERACTIVE='tracks_and_traces' astro dev",
     "dev:putting_it_together": "cross-env PUBLIC_INTERACTIVE='putting_it_together' astro dev",
     "start": "astro dev",
-    "start:chrome":"/usr/bin/google-chrome --disable-pinch --kiosk http://localhost:80" ,
+    "start:chrome":"/usr/bin/google-chrome --disable-pinch --kiosk http://localhost:80",
     "build": "astro check && astro build && cp serve.json dist/",
     "build:body_fossils": "astro check && cross-env PUBLIC_INTERACTIVE='body_fossils' astro build && cp serve.json dist/ && sudo cp -r ./dist/* /var/www/html",
     "build:tracks_and_traces": "astro check && cross-env PUBLIC_INTERACTIVE='tracks_and_traces' astro build && cp serve.json dist/ && sudo cp -r ./dist/* /var/www/html",
