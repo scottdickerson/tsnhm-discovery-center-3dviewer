@@ -77,7 +77,7 @@ export default function FunFactDrawer({
                 </DrawerTrigger>
                 <DrawerContent
                     onClick={(e) => !open && e.stopPropagation()}
-                    className="bg-funFactBackground text-white border-none left-[34.5rem] right-[76px] rounded-tl-3xl rounded-tr-none rounded-bl-none pr-10 z-2000 "
+                    className="bg-funFactBackground text-white border-none left-[34.5rem] right-[76px] bottom-5 rounded-tl-3xl rounded-tr-none rounded-bl-none pr-10 z-2000 "
                 >
                     <VisuallyHidden.Root>
                         <DrawerTitle>Fun Fact</DrawerTitle>
