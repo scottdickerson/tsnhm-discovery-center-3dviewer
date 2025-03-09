@@ -68,6 +68,9 @@
             user-drag: none;
         }
     }
+    .disabled {
+        pointer-events: none;
+    }
 }
 
 @font-face {

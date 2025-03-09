@@ -66,7 +66,7 @@ export default function FunFactDrawer({
                                 </div>
                             </div>
                         ) : null}
-                        <FunFactButton className="self-end" />
+                            <FunFactButton className="self-end" disabled={open}/>
                         <div className=" bg-funFactBackground h-14 rounded-tl-4xl  "></div>
                     </div>
                 </DrawerTrigger>
@@ -91,7 +91,7 @@ export default function FunFactDrawer({
                                             selectedFootprintData.funFact
                                                 .split('\n')
                                                 .map(
-                                                    (line, index) =>
+                                                    (line) =>
                                                         `<p>${line}</p>`
                                                 )
                                                 .join('')
