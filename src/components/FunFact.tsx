@@ -20,7 +20,7 @@ const FunFactButton = forwardRef<HTMLButtonElement, ButtonProps>(
             <Button
                 {...props}
                 ref={ref}
-                className={`bg-funFactBackground hover:bg-funFactBackground text-[#9FD71C] focus:outline-none focus:border-none font-black rounded-none rounded-t-2xl px-10 py-8 text-3xl translate-y-[10px] ${className}`}
+                className={`font-archivo bg-funFactBackground hover:bg-funFactBackground text-[#9FD71C] focus:outline-none focus:border-none font-black rounded-none rounded-t-2xl px-10 py-8 text-3xl translate-y-[10px] ${className}`}
             >
                 <span className="animate-bounce duration-2000 ease-in-out">
                     FUN FACT
@@ -84,7 +84,7 @@ export default function FunFactDrawer({
                     </VisuallyHidden.Root>
                     <DrawerClose asChild>
                         <FunFactButton
-                            className={`absolute right-0 -top-16 transition duration-0 delay-650 semi-expanded`}
+                            className={`absolute right-0 -top-16 transition duration-0 delay-650`}
                         />
                     </DrawerClose>
                     <DrawerClose>
