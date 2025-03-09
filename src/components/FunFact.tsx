@@ -44,9 +44,14 @@ export default function FunFactDrawer({
     }
     return (
         <div
-            className={`flex justify-end absolute ${drawerTriggerOffset.left} ${drawerTriggerOffset.right} bottom-0`}
+            className={`flex justify-end absolute ${drawerTriggerOffset.left} ${drawerTriggerOffset.right} bottom-0 `}
         >
-            <Drawer direction="bottom" open={open} onOpenChange={setOpen}>
+            <Drawer
+                direction="bottom"
+                open={open}
+                onOpenChange={setOpen}
+                dismissible={open}
+            >
                 <DrawerTrigger asChild>
                     <div className="flex flex-col pl-4 pr-4 w-full">
                         {/* Dinosaur Silhouette */}
@@ -66,17 +71,20 @@ export default function FunFactDrawer({
                                 </div>
                             </div>
                         ) : null}
-                            <FunFactButton className="self-end" disabled={open}/>
+                        <FunFactButton className="self-end" disabled={open} />
                         <div className=" bg-funFactBackground h-14 rounded-tl-4xl  "></div>
                     </div>
                 </DrawerTrigger>
-                <DrawerContent className="bg-funFactBackground text-white border-none left-[34.5rem] right-[76px] rounded-tl-3xl rounded-tr-none rounded-bl-none pr-10">
+                <DrawerContent
+                    onClick={(e) => !open && e.stopPropagation()}
+                    className="bg-funFactBackground text-white border-none left-[34.5rem] right-[76px] rounded-tl-3xl rounded-tr-none rounded-bl-none pr-10 z-2000 "
+                >
                     <VisuallyHidden.Root>
                         <DrawerTitle>Fun Fact</DrawerTitle>
                     </VisuallyHidden.Root>
                     <DrawerClose asChild>
                         <FunFactButton
-                            className={`absolute right-0 -top-16 ${!open ? 'opacity-0' : ''} transition duration-0 delay-650 semi-expanded`}
+                            className={`absolute right-0 -top-16 transition duration-0 delay-650 semi-expanded`}
                         />
                     </DrawerClose>
                     <DrawerClose>
@@ -90,10 +98,7 @@ export default function FunFactDrawer({
                                         {parse(
                                             selectedFootprintData.funFact
                                                 .split('\n')
-                                                .map(
-                                                    (line) =>
-                                                        `<p>${line}</p>`
-                                                )
+                                                .map((line) => `<p>${line}</p>`)
                                                 .join('')
                                         )}
                                     </div>

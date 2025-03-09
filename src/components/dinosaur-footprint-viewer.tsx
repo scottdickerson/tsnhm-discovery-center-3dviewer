@@ -45,9 +45,10 @@ export default function DinosaurFootprintViewer({
                                             : 'ghost'
                                     }
                                     className={`w-full justify-start ${selectedFootprint === id ? 'bg-[#9FD71C]' : 'bg-lime-600/70'} rounded-3xl py-14 text-center text-black`}
-                                    disabled={selectedFootprint === id}
                                     onClick={() =>
-                                        selectedFootprint == id ? undefined: (window.location.href = `/${id}`)
+                                        selectedFootprint == id
+                                            ? undefined
+                                            : (window.location.href = `/${id}`)
                                     }
                                 >
                                     <div className="text-xl leading-6 w-full">

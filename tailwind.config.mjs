@@ -27,6 +27,9 @@ export default {
             animationDuration: {
                 2000: '2000ms',
             },
+            zIndex: {
+                2000: '2000',
+            },
             colors: {
                 funFactBackground: '#1D8406',
                 background: 'hsl(var(--background))',
