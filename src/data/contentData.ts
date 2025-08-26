@@ -102,7 +102,7 @@ export const contentData: Record<ContentDataKeys, ContentData> = {
                   buttonLine2: 'Dinosaur Valley State Park',
                   headerText: 'Predator Prints',
                   leadText:
-                      'Dinosaur Valley State Park was was once a vast Cretaceous shoreline where <em>Acrocanthosaurus</em> may have hunted <em>Sauroposeidon</em> searching for food. ',
+                      'Dinosaur Valley State Park was once a vast Cretaceous shoreline where <em>Acrocanthosaurus</em> may have hunted <em>Sauroposeidon</em> searching for food. ',
                   tombstoneLine1: 'Theropod Footprint',
                   tombstoneLine2: '3D Photogrammetry, 2023',
                   tombstoneLine3: 'Dinosaur Valley State Park',
