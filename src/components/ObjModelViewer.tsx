@@ -98,13 +98,14 @@ export const ObjModelViewer = ({
     }, [])
 
     const loadTheModel = useCallback(() => {
+        document.body.className = 'disabled'
         if (modelType === 'gltf') {
             const loader = new GLTFLoader()
             loader.load(
                 `${modelFileName}.glb`,
                 (gltf) => {
                     thisRef.current.model = gltf.scene
-                    document.body.className=""
+                    document.body.className = ''
                     setModelIsLoaded(true)
                 },
                 undefined,
@@ -138,7 +139,7 @@ export const ObjModelViewer = ({
                         if (loadingPercentage === 100) {
                             setModelIsLoaded(true)
                             // wait for the textures to load
-                            document.body.className=""
+                            document.body.className = ''
                         }
                     }
                 )
@@ -225,12 +226,13 @@ export const ObjModelViewer = ({
     }, [sceneSetup, addLights, loadTheModel, handleWindowResize])
 
     useEffect(() => {
-        document.body.className = "disabled";  // wait until the model has loaded
-        return () => {if (thisRef.current.renderer && thisRef.current.scene) {
-           thisRef.current.renderer.dispose()
-            thisRef.current.renderer = undefined;
-        }}
-    },[])
+        return () => {
+            if (thisRef.current.renderer && thisRef.current.scene) {
+                thisRef.current.renderer.dispose()
+                thisRef.current.renderer = undefined
+            }
+        }
+    }, [])
 
     const updateCameraPosition = ({
         x,
